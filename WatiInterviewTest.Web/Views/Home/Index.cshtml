@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="col-md-12 justify-content-center">
+    <div class="col-md-6">
+        <div>
+            <label class="col-form-label">Number 1</label>
+            <input type="text" id="txtnum1" name="num1" class="form-control"/>
+        </div>
+        <div>
+            <label class="col-form-label">Number 2</label>
+            <input type="text" id="txtnum2" name="num2" class="form-control" />
+        </div>
+        <div>
+            <input type="submit" value="Save" id="btnsubmit" />
+        </div>
+        <div class="pt-3">
+
+        </div>
+        <div id="resultdiv" class="pt-3">
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#btnsubmit").click(function () {
+
+                var num1 = parseInt($("#txtnum1").val());
+                var num2 = parseInt($("#txtnum2").val());
+
+                sumForm = {
+                    Num1: num1,
+                    Num2: num2
+                }
+
+
+                $.ajax({
+                    url: "/Home/SumNumbers", // Adjust the URL to match your route
+                    method: "POST",
+                    data: JSON.stringify(sumForm),
+                    contentType: "application/json",
+                    success: function (data) {
+                        $("#resultdiv").text(data);
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
+}

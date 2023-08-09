@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatiInterviewTest.Api", "WatiInterviewTest.Api\WatiInterviewTest.Api.csproj", "{D6E5063D-9956-4701-B3F0-908185DC297D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatiInterviewTest.Api", "WatiInterviewTest.Api\WatiInterviewTest.Api.csproj", "{D6E5063D-9956-4701-B3F0-908185DC297D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatiInterviewTest.Service", "WatiInterviewTest.Service\WatiInterviewTest.Service.csproj", "{96B4EF98-78A9-4E55-8CF3-74C54E5F35F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatiInterviewTest.Service", "WatiInterviewTest.Service\WatiInterviewTest.Service.csproj", "{96B4EF98-78A9-4E55-8CF3-74C54E5F35F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatiInterviewTest.Model", "WatiInterviewTest.Model\WatiInterviewTest.Model.csproj", "{860C677C-725C-4386-A187-E806D7F60AA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatiInterviewTest.Model", "WatiInterviewTest.Model\WatiInterviewTest.Model.csproj", "{860C677C-725C-4386-A187-E806D7F60AA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatiInterviewTest.xUnitTest", "WatiInterviewTest.xUnitTest\WatiInterviewTest.xUnitTest.csproj", "{01E7EF66-4051-4681-B45B-B481F3A9791D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatiInterviewTest.xUnitTest", "WatiInterviewTest.xUnitTest\WatiInterviewTest.xUnitTest.csproj", "{01E7EF66-4051-4681-B45B-B481F3A9791D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatiInterviewTest.Context", "WatiInterviewTest.Context\WatiInterviewTest.Context.csproj", "{A0C42693-3B44-40B2-84A3-5D904F385CD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WatiInterviewTest.Context", "WatiInterviewTest.Context\WatiInterviewTest.Context.csproj", "{A0C42693-3B44-40B2-84A3-5D904F385CD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatiInterviewTest.Web", "WatiInterviewTest.Web\WatiInterviewTest.Web.csproj", "{B6A03283-FE7D-40F1-88DC-0C9DBDA63532}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{A0C42693-3B44-40B2-84A3-5D904F385CD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C42693-3B44-40B2-84A3-5D904F385CD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C42693-3B44-40B2-84A3-5D904F385CD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6A03283-FE7D-40F1-88DC-0C9DBDA63532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6A03283-FE7D-40F1-88DC-0C9DBDA63532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6A03283-FE7D-40F1-88DC-0C9DBDA63532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6A03283-FE7D-40F1-88DC-0C9DBDA63532}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
