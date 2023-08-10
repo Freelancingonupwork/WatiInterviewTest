@@ -1,0 +1,38 @@
+# Use the official ASP.NET Core Runtime image as the base image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+# Copy the published web project into the image
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+COPY ["Wati.Interview.Test/Wati.Interview.Test.csproj", "Wati.Interview.Test/"]
+RUN dotnet restore "Wati.Interview.Test/Wati.Interview.Test.csproj"
+COPY . .
+WORKDIR "/src/Wati.Interview.Test"
+RUN dotnet build "Wati.Interview.Test.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Wati.Interview.Test.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+# Set up the SQL Server environment variables
+ENV SA_PASSWORD=Potenza@123
+ENV ACCEPT_EULA=Y
+
+# Use SQL Server Docker image and create a database
+FROM mcr.microsoft.com/mssql/server:2019-latest AS sqlserver
+ENV MSSQL_SA_PASSWORD=Potenza@123
+ENV ACCEPT_EULA=Y
+WORKDIR /usr/src/app
+COPY ["db-scripts/init.sql", "/usr/src/app/"]
+RUN /opt/mssql/bin/sqlservr & sleep 10 && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P $MSSQL_SA_PASSWORD -i init.sql
+
+# Final image with Web API and SQL Server
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+COPY --from=sqlserver /var/opt/mssql/data /var/opt/mssql/data
+
+
+ENTRYPOINT ["dotnet", "Wati.Interview.Test.dll"]
