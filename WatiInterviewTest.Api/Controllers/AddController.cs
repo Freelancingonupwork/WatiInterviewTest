@@ -35,7 +35,9 @@ namespace WatiInterviewTest.Api.Controllers
                     Num2 = request.Num2,
                 };
 
-                return Ok(await MathOperationService.AddAsync(sum));
+                int result = await MathOperationService.AddAsync(sum);
+
+                return Ok(result);
                 
             }
             catch (Exception ex)
